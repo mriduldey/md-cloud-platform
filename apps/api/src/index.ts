@@ -1,12 +1,15 @@
 import express from 'express';
+import dotenv from 'dotenv';
+import authRouter from './routes/auth/register';
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+app.use(express.json());
 
-app.get('/', (_, res) => {
-    res.send('🚀 md-cloud-platform API is up and running!');
-});
+// ✅ Mount router
+app.use('/api/auth', authRouter);
 
-app.listen(PORT, () => {
-    console.log(`API server listening on http://localhost:${PORT}`);
+app.listen(3001, () => {
+  console.log('Server running at http://localhost:3001');
 });

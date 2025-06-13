@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug API (ts-node)",
+            "program": "${workspaceFolder}/apps/api/src/index.ts",
+            "runtimeExecutable": "ts-node",
+            "runtimeArgs": [
+                "--transpile-only"
+            ],
+            "cwd": "${workspaceFolder}/apps/api",
+            "envFile": "${workspaceFolder}/apps/api/.env",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Dashboard (Next.js)",
+            "program": "${workspaceFolder}/apps/dashboard/node_modules/next/dist/bin/next",
+            "args": [
+                "dev"
+            ],
+            "cwd": "${workspaceFolder}/apps/dashboard",
+            "envFile": "${workspaceFolder}/apps/dashboard/.env",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ]
+}
