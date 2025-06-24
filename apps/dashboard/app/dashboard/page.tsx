@@ -45,6 +45,16 @@ export default function DashboardPage() {
         <div className="p-6 text-white">
             <h1 className="text-3xl font-bold">Welcome to your dashboard</h1>
             <p className="mt-2">Logged in as <strong>{user?.email}</strong></p>
+            <button
+                className="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded"
+                onClick={() => {
+                    localStorage.removeItem('token');
+                    router.push('/login');
+                }}
+            >
+                Logout
+            </button>
+
         </div>
     );
 }
