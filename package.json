@@ -9,6 +9,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.4.1",
@@ -19,5 +20,8 @@
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }

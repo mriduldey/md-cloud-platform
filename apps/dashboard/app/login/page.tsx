@@ -3,11 +3,12 @@
 import { GoogleLogin } from '@react-oauth/google';
 import { useRouter } from 'next/navigation';
 import { apiRequest } from '../../lib/api';
+import { setAuthToken } from '@lib/auth';
 
 export default function LoginPage() {
     const router = useRouter();
 
-    const handleSuccess = async (credentialResponse) => {
+    const handleSuccess = async (credentialResponse: any) => {
         try {
             const data = await apiRequest < { token: string } > ('/auth/google', {
                 method: 'POST',
@@ -18,7 +19,11 @@ export default function LoginPage() {
             router.push('/dashboard');
         } catch (error) {
             console.error('Google login error', error);
-            alert(error.message || 'Google login failed');
+            if (error && typeof error === 'object' && 'message' in error) {
+                alert((error as { message: string }).message);
+            } else {
+                alert('Google login failed');
+            }
         }
     };
 
