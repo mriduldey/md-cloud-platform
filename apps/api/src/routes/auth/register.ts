@@ -2,7 +2,7 @@ import { z } from 'zod';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '../../config/env';
-import { users } from './mock/user';
+import { User, users } from '../users/mock/user';
 
 // Zod schema
 const registerSchema = z.object({
@@ -19,7 +19,7 @@ export const registerHandler = async (req: any, res: any) => {
         }
 
         const passwordHash = await bcrypt.hash(parsed.password, 10);
-        users.set(parsed.email, { passwordHash });
+        users.set(parsed.email, { passwordHash } as User);
 
         const token = jwt.sign({ email: parsed.email }, JWT_SECRET!, {
             expiresIn: '1h',

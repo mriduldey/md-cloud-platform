@@ -2,7 +2,7 @@ import { z } from 'zod';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '../../config/env';
-import { users } from './mock/user';
+import { users } from '../users/mock/user';
 
 
 const loginSchema = z.object({
