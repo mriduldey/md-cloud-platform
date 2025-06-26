@@ -1,5 +1,6 @@
 // apps/dashboard/app/layout.tsx
 'use client';
+import './global.css';
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ReactNode } from 'react';
