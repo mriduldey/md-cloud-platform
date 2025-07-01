@@ -42,7 +42,7 @@ export default function DashboardPage() {
     if (loading) return <div className="p-4 text-white">Checking authentication...</div>;
 
     return (
-        <div className="p-6 text-white">
+        <div className="p-6 text-black">
             <h1 className="text-3xl font-bold">Welcome to your dashboard</h1>
             <p className="mt-2">Logged in as <strong>{user?.email}</strong></p>
             <button
