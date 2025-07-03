@@ -18,13 +18,13 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
         "paths": {
-            "auth/*": [
+            "@auth/*": [
                 "packages/auth/src/*"
             ],
-            "storage/*": [
+            "@storage/*": [
                 "packages/storage/src/*"
             ],
-            "shared/*": [
+            "@shared/*": [
                 "packages/shared/src/*"
             ]
         }

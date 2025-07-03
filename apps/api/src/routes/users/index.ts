@@ -3,12 +3,12 @@
 import express from 'express';
 import { users } from './mock/user';
 import { requireAuth } from '../../middleware/requireAuth';
-import { requireAdmin } from '../../middleware/requireAdmin';
 import { profileHandler } from './profile';
+import { requireRole } from '../../middleware/requireRole';
 
 const router = express.Router();
 
-router.get('/', requireAuth, requireAdmin, (req, res) => {
+router.get('/', requireAuth, requireRole(['admin']), (req, res) => {
     const allUsers = Array.from(users.entries()).map(([email, data]) => ({
         email,
         name: data.name,
